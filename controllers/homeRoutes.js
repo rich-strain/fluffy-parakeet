@@ -7,19 +7,26 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // Grab all blog posts and JOIN with user data
-    // const postData = await Post.findAll({
-    //   include: [{ model: User }],
-    // });
+    const postData = await Post.findAll({
+      include: [{ model: User }],
+    });
 
-    // // Serialize data so the handlebars template can read it
-    // const posts = postData.map((posts) => posts.get({ plain: true }));
+    // Serialize data so the handlebars template can read it
+    const posts = postData.map((posts) => posts.get({ plain: true }));
 
     // Pass serialized data and session value to the template
-    res.render('homepage', {
-      loggedIn: req.session.loggedIn,
-    });
+    res.render('posts', { posts });
+    //res.json(posts);
   } catch (err) {
     console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/registration', async (req, res) => {
+  try {
+    res.render('registration');
+  } catch (err) {
     res.status(500).json(err);
   }
 });

@@ -1,31 +1,39 @@
 <html lang='en'>
-
   <head>
-    <meta charset='utf-8' />
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <title>CodeCrunchers</title>
-    <link rel='stylesheet' type='text/css' href='/css/jass.css' />
-    <link rel='stylesheet' type='text/css' href='/css/style.css' />
+    <title>Tek Blog</title>
+    <link rel='icon' href='./files/logo.png' />
+    <link rel='stylesheet' type='text/css' href='./css/style.css' />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link href='https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap' rel='stylesheet' />
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@latest/css/boxicons.min.css' />
+
   </head>
-
   <body>
-    <header class='headerBackground'>
-      <h1>Code Crunchers</h1>
-    </header>
-    <nav class='navBackground'>
-      <a href='/'>Home</a>
-      {{#if loggedIn}}
-        <button id='logout' class='btn-no-style'>Logout</button>
-      {{else}}
-        <a href='/login'>Login</a>
-      {{/if}}
-    </nav>
-    <main class='container container-fluid mt-5'>
-      {{!-- {{{body}}} --}}
-    </main>
-    {{#if loggedIn}}
-      <script src='/js/logout.js'></script>
-    {{/if}}
-  </body>
+    <div class='content' id='home'>
+      <nav>
+        <img src='./images/logo.png' class='logo' alt='Logo' title='Tek Blog' />
 
+        <ul class='navbar'>
+          <li>
+            <a href='/'>Home</a>
+            {{#if user}}
+              <a href='/logout'>Logout</a>
+            {{else}}
+              <a href='/login'>Login</a>
+            {{/if}}
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Template Views -->
+    {{{body}}}
+
+  </body>
 </html>
