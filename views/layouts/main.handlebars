@@ -1,39 +1,67 @@
+{{! HTML TYPE }}
 <html lang='en'>
   <head>
     <meta charset='UTF-8' />
-    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-    <meta charset='UTF-8' />
-    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>Tek Blog</title>
-    <link rel='icon' href='./files/logo.png' />
-    <link rel='stylesheet' type='text/css' href='./css/style.css' />
-    <link rel='preconnect' href='https://fonts.googleapis.com' />
-    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-    <link href='https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap' rel='stylesheet' />
-    <link rel='stylesheet' href='https://unpkg.com/boxicons@latest/css/boxicons.min.css' />
+    <!-- Bulma CSS -->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css' />
+    <!-- Custom CSS -->
+    <link rel='stylesheet' href='./css/styles.css' type='text/html' />
+    {{! Load jQuery }}
+    <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 
   </head>
   <body>
-    <div class='content' id='home'>
-      <nav>
-        <img src='./images/logo.png' class='logo' alt='Logo' title='Tek Blog' />
+    <header>
+      <nav class='navbar' role='navigation' aria-label='main navigation'>
+        <div class='navbar-brand'>
+          <a class='navbar-item' href=''>
+            <strong>TEK-BLOG</strong>
+            {{! SVG LOGO CAN GO HERE }}
+          </a>
 
-        <ul class='navbar'>
-          <li>
-            <a href='/'>Home</a>
-            {{#if user}}
-              <a href='/logout'>Logout</a>
-            {{else}}
-              <a href='/login'>Login</a>
-            {{/if}}
-          </li>
-        </ul>
+          <a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='navbarBasicExample'>
+            <span aria-hidden='true'></span>
+            <span aria-hidden='true'></span>
+            <span aria-hidden='true'></span>
+          </a>
+        </div>
+
+        <div id='navbarBasicExample' class='navbar-menu'>
+          <div class='navbar-start'>
+            <a class='navbar-item'>
+              Home
+            </a>
+
+            <a class='navbar-item'>
+              Dashboard
+            </a>
+          </div>
+
+          <div class='navbar-end'>
+            <div class='navbar-item'>
+              {{#if user}}
+                <a class='navbar-item' href='/logout'>
+                  Logout
+                </a>
+              {{else}}
+                <a class='navbar-item'>
+                  <strong>Sign up</strong>
+                </a>
+                <a class='navbar-item' href='/login'>
+                  Log in
+                </a>
+              {{/if}}
+            </div>
+          </div>
+        </div>
       </nav>
-    </div>
+    </header>
 
-    <!-- Template Views -->
+    <!-- HandleBars Template Views -->
     {{{body}}}
 
   </body>
+  <script src='./js/navBar.js'></script>
 </html>

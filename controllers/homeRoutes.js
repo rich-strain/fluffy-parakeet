@@ -8,11 +8,12 @@ router.get('/', async (req, res) => {
   try {
     // Grab all blog posts and JOIN with user data
     const postData = await Post.findAll({
-      include: [{ model: User }],
+      include: [{ model: User, attributes: { exclude: ['password'] } }],
     });
 
     // Serialize data so the handlebars template can read it
     const posts = postData.map((posts) => posts.get({ plain: true }));
+    console.log('Posts Data: ', posts);
 
     // Pass serialized data and session value to the template
     res.render('posts', { posts });
