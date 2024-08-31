@@ -1,21 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// GET All Users
-router.get('/', async (req, res) => {
-  try {
-    const dbUserData = await User.findAll({
-      attributes: { exclude: ['password'] },
-    });
-
-    res.json(dbUserData);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-// CREATE new user
+// New User Route
 router.post('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
@@ -25,7 +11,7 @@ router.post('/', async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.loggedIn = true;
+      req.session.authorized = true;
 
       res.status(200).json(dbUserData);
     });
@@ -35,7 +21,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Login
+// Authenticate User Route
 router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
@@ -57,9 +43,10 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.loggedIn = true;
-
-      res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
+      req.session.isAuthorized = true;
+      req.session.user_id = dbUserData.id;
+      res.redirect('/');
+      //res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
     });
   } catch (err) {
     console.log(err);
@@ -67,9 +54,9 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Logout
+// Logout User Route
 router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.authenticated) {
     req.session.destroy(() => {
       res.status(204).end();
     });

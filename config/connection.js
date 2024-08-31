@@ -1,13 +1,17 @@
-const Sequelize = require('sequelize'); // Import Sequelize Library
-require('dotenv').config(); // Import dotenv library
+const Sequelize = require('sequelize');
+const dotenv = require('dotenv');
 
-// Create a new Sequelize instance
-const sequelize = process.env.DB_URL
-  ? new Sequelize(process.env.DB_URL)
-  : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
-      host: 'localhost',
-      dialect: 'postgres',
-    });
+dotenv.config();
 
-// Export the sequelize instance
+let sequelize;
+
+if (process.env.DB_URL) {
+  sequelize = new Sequelize(process.env.DB_URL);
+} else {
+  sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+    host: 'localhost',
+    dialect: 'postgres',
+  });
+}
+
 module.exports = sequelize;

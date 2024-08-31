@@ -16,7 +16,7 @@ const postData = [
   {
     title: 'Title 3',
     post_content: 'This is the third post!',
-    user_id: 3,
+    user_id: 1,
   },
 ];
 
