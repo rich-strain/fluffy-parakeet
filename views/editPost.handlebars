@@ -1,5 +1,30 @@
-<div class='container'>
-  <div class='notification is-light mt-5'>
-    Edit Post By Id Here.
-  </div>
+<div class='container is-max-desktop mt-5'>
+  <h2><strong>EDIT POST</strong></h2>
+  <form id='updatePostForm'>
+    <div class='field mt-5'>
+      <label class='label'>Post Title</label>
+      <div class='control'>
+        <input class='input is-primary' type='text' placeholder='Post Title' id='postTitle' value='{{post.title}}' />
+      </div>
+    </div>
+
+    <div class='field'>
+      <label class='label'>Post Content</label>
+      <div class='control'>
+        <textarea class='textarea is-primary' id='postContent'>{{post.post_content}}</textarea>
+      </div>
+    </div>
+
+    <div class='field is-grouped'>
+      <div class='control'>
+        <button class='button is-link' type='submit' data-id='{{post.id}}' id='updateBtn'>Update</button>
+      </div>
+      <div class='control'>
+        <button class='button is-link is-light' data-id='{{post.id}}' id='deleteBtn'>Delete</button>
+      </div>
+    </div>
+  </form>
 </div>
+
+{{! Import Form Handler }}
+<script src='/js/editPost.js'></script>

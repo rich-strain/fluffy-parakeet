@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// New User Route
+// Create User Route
 router.post('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
@@ -56,7 +56,7 @@ router.post('/login', async (req, res) => {
 
 // Logout User Route
 router.post('/logout', (req, res) => {
-  if (req.session.authenticated) {
+  if (req.session.isAuthorized) {
     req.session.destroy(() => {
       res.status(204).end();
     });

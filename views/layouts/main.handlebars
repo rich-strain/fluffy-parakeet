@@ -1,4 +1,3 @@
-{{! HTML TYPE }}
 <html lang='en'>
   <head>
     <meta charset='UTF-8' />
@@ -7,18 +6,19 @@
     <!-- Bulma CSS -->
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css' />
     {{! Load jQuery }}
-    <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+    {{! <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script> }}
 
   </head>
   <body>
     <header>
-      <nav class='navbar is-primary' role='navigation' aria-label='main navigation'>
+      <nav class='navbar is-light' role='navigation' aria-label='main navigation'>
         <div class='navbar-brand'>
-          <a class='navbar-item' href='/'>
-            <strong>TEK-BLOG</strong>
-            {{! SVG LOGO CAN GO HERE }}
-          </a>
-
+          <span class='icon-text'>
+            <a class='navbar-item' href='/'>
+              <img src='./images/brand-icon.png' />
+            </a>
+            <span class='icon'><i class='fas fa-blog'></i></span>
+          </span>
           <a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='navbarBasicExample'>
             <span aria-hidden='true'></span>
             <span aria-hidden='true'></span>
@@ -32,7 +32,7 @@
               Home
             </a>
 
-            <a class='navbar-item' href='/dashboard/'>
+            <a class='navbar-item' href='/dashboard'>
               Dashboard
             </a>
           </div>
@@ -48,7 +48,7 @@
                   <strong>Sign up</strong>
                 </a>
                 <a class='navbar-item' href='/login'>
-                  Log in
+                  Login
                 </a>
               {{/if}}
             </div>
@@ -61,10 +61,10 @@
     {{{body}}}
 
   </body>
-  <script src='./js/navBar.js'></script>
+  <script type='text/javascript' src='./js/navBar.js' type=''></script>
 
   <!-- Import Logout Script if User is Authenticated -->
   {{#if authenticated}}
-    <script src='/js/logout.js'></script>
+    <script type='text/javascript' src='js/logout.js'></script>
   {{/if}}
 </html>

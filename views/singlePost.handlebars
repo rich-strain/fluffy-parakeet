@@ -1,16 +1,40 @@
-<div class="row mb-4 project">
-    <div class="col-md-5">
-        <h2>
-            <a href="/post/{{id}}">{{title}}</a>
-        </h2>
-        {{!-- format_date --}}
-        <p>Created by {{post.user.name}} on {{format_date post.date_created}}</p>
+<div class='container is-max-desktop mt-5'>
+  <div class='card'>
+    <header class='card-header'>
+      <p class='card-header-title'>{{post.title}}</p>
+    </header>
+    <div class='card-content'>
+      <div class='content'>
+        {{post.post_content}}
+      </div>
     </div>
-    <div class="col-md-7">
-        <p>
-            {{content}}
-        </p>
-    </div>
-</div>
+    <footer class='card-footer'>
+      <p class='card-footer-item'>
+        <span>
+          Created By:
+          <strong>{{post.name}}</strong>
+          on
+          {{format_date post.date_created}}
+        </span>
+      </p>
+    </footer>
+  </div>
 
+  <div class='card mt-5'>
+    <header class='card-header'>
+      <p class='card-header-title'>Leave a Comment</p>
+    </header>
+    <div class='card-content'>
+      <div class='content'>
+        <textarea class='textarea is-primary' id='commentContent'></textarea>
+      </div>
+    </div>
+    <footer class='card-footer'>
+      <p class='card-footer-item'>
+        <span>
+          <button class='button is-link' type='submit' data-id='{{post.id}}' id='updateBtn'>Add Comment</button>
+        </span>
+      </p>
+    </footer>
+  </div>
 </div>

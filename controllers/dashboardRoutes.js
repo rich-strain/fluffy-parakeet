@@ -25,7 +25,7 @@ router.get('/', verifyAuth, async (req, res) => {
 });
 
 // Render New Post Page
-router.get('/new', verifyAuth, async (req, res) => {
+router.get('/new-post', verifyAuth, async (req, res) => {
   try {
     res.render('newPost', { authenticated: req.session.isAuthorized });
   } catch (err) {
@@ -33,7 +33,7 @@ router.get('/new', verifyAuth, async (req, res) => {
   }
 });
 
-router.get('/edit_post/:id', verifyAuth, async (req, res) => {
+router.get('/edit-post/:id', verifyAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [{ model: User }],

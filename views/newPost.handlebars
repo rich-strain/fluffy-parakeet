@@ -1,0 +1,27 @@
+<div class='container is-max-desktop mt-5'>
+  <h2><strong>NEW POST</strong></h2>
+  <form id='newFormPost'>
+    <div class='field mt-5'>
+      <label class='label'>Post Title</label>
+      <div class='control'>
+        <input class='input is-primary' type='postTitle' placeholder='Post Title' id='postTitle' required />
+      </div>
+    </div>
+
+    <div class='field'>
+      <label class='label'>Post Content</label>
+      <div class='control'>
+        <textarea class='textarea is-primary' placeholder='Textarea' id='postContent' required></textarea>
+      </div>
+    </div>
+
+    <div class='field is-grouped'>
+      <div class='control'>
+        <button class='button is-link' id='submitPost'>Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+{{! Handle New Post Form }}
+<script src='/js/newPost.js'></script>
