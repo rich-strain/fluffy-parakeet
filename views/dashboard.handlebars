@@ -1,14 +1,22 @@
 <div class="container is-max-desktop mt-5">
-    <h2><strong>MY POSTS</strong></h2>
-</div>
+   <nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="/" class="has-text-grey-dark">Home</a></li>
+    <li class="is-active"><a href="" class="has-text-grey" aria-current="page"></li>Dashboard</a></li>
+  </ul>
+</nav>
+
 
 {{#each posts as |post|}}
-<div class='container is-max-desktop mt-5'>
-  <div class="columns is-gapless">
-  <div class="column is-one-half has-background-light"><strong><a class="has-text-black" href='dashboard/edit-post/{{post.id}}'>{{post.title}}</a></strong></div>
-  <div class="column is-one-half has-background-light">Created By {{post.user.name}} on {{format_date post.date_created}}</div>
-</div>
-{{/each}}
+    <div class='card mt-5'>
+      <header class='card-header has-background-light'>
+        <p class='card-header-title'><a class='has-text-black' href='dashboard/edit-post/{{post.id}}'>{{post.title}}</a></p>
+        <span class="has-text-weight-medium pr-5 pt-3">
+          {{format_date post.date_created}}
+        </span>
+      </header>
+    </div>
+  {{/each}}
 
 <div class="field is-grouped">
   <div class="control mt-5">
@@ -16,5 +24,5 @@
   </div>
 </div>
 
-
+</div>
 <script src='/js/newPostRedirect.js'></script>

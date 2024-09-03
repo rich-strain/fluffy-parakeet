@@ -1,33 +1,51 @@
-<h1 class='title'>Create an Account</h1>
+<div class='container is-max-desktop mt-5'>
+  <nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+      <li><a href="/" class="has-text-grey-dark">Home</a></li>
+      <li class="is-active"><a href="" class="has-text-grey" aria-current="page"></li>Create User Account</a></li>
+    </ul>
+  </nav>
+  <div class='card'>
+    <div class='card-content'>
+      <div class='content'>
+        {{! Registration Form }}
+        <form id='regForm'>
+          <div class='field'>
+            <label class='label'>Name</label>
+            <div class='control'>
+              <input class='input' type='text' placeholder='Your Name' id='regName' />
+            </div>
+          </div>
 
-<form action='/api/users/register' method='POST'>
-  <div class='field'>
-    <label class='label'>Name</label>
-    <div class='control'>
-      <input class='input' type='text' name='name' placeholder='Your Name' required />
+          <div class='field'>
+            <label class='label'>Email</label>
+            <div class='control'>
+              <input class='input' type='email' placeholder='Your Email' id='regEmail' />
+            </div>
+          </div>
+
+          <div class='field'>
+            <label class='label'>Password</label>
+            <div class='control'>
+              <input class='input' type='password' placeholder='Your Password' id='regPassword' />
+            </div>
+          </div>
+
+          <div class='control'>
+            <button class='button is-link mt-4' type='submit'>Sign Up</button>
+          </div>
+        </form>
+      </div>
     </div>
+    <footer class='card-footer'>
+      <p class='card-footer-item'>
+        <span>
+          Already have an account?
+          <a href='/login'>Login here</a>.
+        </span>
+      </p>
+    </footer>
   </div>
+</div>
 
-  <div class='field'>
-    <label class='label'>Email</label>
-    <div class='control'>
-      <input class='input' type='email' name='email' placeholder='Your Email' required />
-    </div>
-  </div>
-
-  <div class='field'>
-    <label class='label'>Password</label>
-    <div class='control'>
-      <input class='input' type='password' name='password' placeholder='Your Password' required />
-    </div>
-  </div>
-
-  <div class='control'>
-    <button class='button is-primary' type='submit'>Register</button>
-  </div>
-</form>
-
-<p class='has-text-centered'>
-  Already have an account?
-  <a href='/'>Login here</a>.
-</p>
+<script src='/js/register.js'></script>

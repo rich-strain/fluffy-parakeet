@@ -1,14 +1,8 @@
 // helper functions can go here
-// possible helper functions:
-// - getFormattedDate
-// - getFormattedTime
-// - getFormattedDateTime
-// - getFormattedDateTimeFromTimestamp
-// - getFormattedDateFromTimestamp
 
-//getFormattedDate
+// Helper function to format date as MM/DD/YYYY
 module.exports = {
   format_date: (date) => {
-    return `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`;
+    return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear()}`;
   },
 };

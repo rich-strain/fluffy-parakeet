@@ -1,40 +1,61 @@
 <div class='container is-max-desktop mt-5'>
+  <nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+      <li><a href="/" class="has-text-grey-dark">Posts</a></li>
+      <li class="is-active"><a href="" class="has-text-grey" aria-current="page"></li>{{post.title}}</a></li>
+    </ul>
+  </nav>
   <div class='card'>
-    <header class='card-header'>
+    <header class='card-header has-background-light'>
       <p class='card-header-title'>{{post.title}}</p>
+      <span class="has-text-weight-medium pr-5 pt-3">
+        Posted By {{post.user.name}} on {{format_date post.date_created}}
+      </span>
     </header>
     <div class='card-content'>
       <div class='content'>
         {{post.post_content}}
       </div>
     </div>
-    <footer class='card-footer'>
-      <p class='card-footer-item'>
-        <span>
-          Created By:
-          <strong>{{post.name}}</strong>
-          on
-          {{format_date post.date_created}}
-        </span>
-      </p>
-    </footer>
   </div>
 
-  <div class='card mt-5'>
-    <header class='card-header'>
-      <p class='card-header-title'>Leave a Comment</p>
-    </header>
-    <div class='card-content'>
-      <div class='content'>
-        <textarea class='textarea is-primary' id='commentContent'></textarea>
+  {{#each comments as |comment|}}
+    <div class='card'>
+      <header class='card-header has-background-light'>
+        <p class='card-header-title'>
+          {{comment.user.name}}
+        </p>
+        <span class="has-text-weight-medium pr-5 pt-3">
+          Commented On {{format_date post.date_created}}
+        </span>
+      </header>
+      <div class='card-content'>
+        <div class='content'>
+          {{content}}
+        </div>
       </div>
     </div>
-    <footer class='card-footer'>
-      <p class='card-footer-item'>
-        <span>
-          <button class='button is-link' type='submit' data-id='{{post.id}}' id='updateBtn'>Add Comment</button>
-        </span>
-      </p>
-    </footer>
+  {{/each}}
+
+  <div class='card mt-5'>
+    <form id='newCommentForm'>
+      <header class='card-header has-background-light'>
+        <p class='card-header-title'>Leave a Comment</p>
+      </header>
+      <div class='card-content'>
+        <div class='content'>
+          <textarea class='textarea is-primary' id='commentContent'></textarea>
+        </div>
+      </div>
+      <footer class='card-footer'>
+        <p class='card-footer-item'>
+          <span>
+            <button class='button is-link' type='submit' data-id='{{post.id}}' id='commentBtn'>Add Comment</button>
+          </span>
+        </p>
+      </footer>
+    </form>
   </div>
 </div>
+
+<script src='/js/newComment.js'></script>

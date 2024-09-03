@@ -1,10 +1,8 @@
 const router = require('express').Router();
-const { User, Post } = require('../models');
+const { User, Post, Comment } = require('../models');
 
 // Import the custom middleware
 const useAuth = require('../utils/auth');
-
-console.log('RUNNING-HOME-ROUTES');
 
 // GET all blog posts for homepage
 router.get('/', async (req, res) => {
@@ -27,13 +25,20 @@ router.get('/', async (req, res) => {
 
 router.get('/post/:id', useAuth, async (req, res) => {
   try {
+    const commentData = await Comment.findAll({
+      where: { post_id: req.params.id },
+      include: [{ model: User, attributes: { exclude: ['password'] } }, { model: Post }],
+    });
     const postData = await Post.findByPk(req.params.id, {
       include: [{ model: User, attributes: { exclude: ['password'] } }],
     });
 
     const post = postData.get({ plain: true });
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
     console.log('Post Data: ', post);
-    res.render('singlePost', { post, authenticated: req.session.isAuthorized });
+    console.log('Comment Data: ', commentData);
+
+    res.render('singlePost', { post, comments, authenticated: req.session.isAuthorized });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

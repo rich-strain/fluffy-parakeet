@@ -1,27 +1,7 @@
 [
   {
-    "name": "rich",
+    "name": "Rich",
     "email": "rich@bootcamp.com",
     "password": "G3mini77##"
-  },
-  {
-    "name": "Steve",
-    "email": "steve@bootcamp.com",
-    "password": "password"
-  },
-  {
-    "name": "Tiffany",
-    "email": "tiffany@bootcamp.com",
-    "password": "password"
-  },
-  {
-    "name": "John",
-    "email": "john@doe.com",
-    "password": "password"
-  },
-  {
-    "name": "Jane",
-    "email": "jane@doe.com",
-    "password": "password"
   }
 ]

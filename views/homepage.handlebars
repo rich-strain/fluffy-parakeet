@@ -1,18 +1,17 @@
 <div class='container is-max-desktop mt-5'>
-  <h2><strong>ALL POSTS</strong></h2>
-
-  {{!-- {{#each posts as |post|}}
-<div class='container is-max-desktop mt-5'>
-  <div class="columns is-gapless is-multiline">
-  <div class="column is-one-half has-background-light"><strong><a class="has-text-black" href='/post/{{post.id}}'>{{post.title}}</a></strong></div>
-  <div class="column is-one-half has-background-light">Created By {{post.user.name}} on {{format_date post.date_created}}</div>
-  <div class="column is-full mt-1">{{post.post_content}}</div>
-</div>
-{{/each}} --}}
+  <nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+      <li><a href="/" class="has-text-grey-dark">Home</a></li>
+      <li class="is-active"><a href="" class="has-text-grey" aria-current="page"></li>All Posts</a></li>
+    </ul>
+  </nav>
   {{#each posts as |post|}}
     <div class='card mt-5'>
-      <header class='card-header'>
+      <header class='card-header has-background-light'>
         <p class='card-header-title'><a class='has-text-black' href='/post/{{post.id}}'>{{post.title}}</a></p>
+        <span class="has-text-weight-medium pr-5 pt-3">
+          <a class='has-text-grey-dark' href='/post/{{post.id}}'>View</a>
+        </span>
       </header>
       <div class='card-content'>
         <div class='content'>
@@ -21,4 +20,4 @@
       </div>
     </div>
   {{/each}}
-</div>
+  </div>

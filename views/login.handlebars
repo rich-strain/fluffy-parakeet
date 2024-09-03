@@ -1,26 +1,42 @@
-<h1 class='title'>Login</h1>
+<div class='container is-max-desktop mt-5'>
+  <nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+      <li><a href="/" class="has-text-grey-dark">Home</a></li>
+      <li class="is-active"><a href="" class="has-text-grey" aria-current="page"></li>Login</a></li>
+    </ul>
+  </nav>
+  <div class='card'>
+    <div class='card-content'>
+      <div class='content'>
+        {{! Login Form }}
+        <form action='/api/users/login' method='POST'>
+          <div class='field'>
+            <label class='label'>Email</label>
+            <div class='control'>
+              <input class='input' type='email' name='email' placeholder='Your Email' required />
+            </div>
+          </div>
 
-<form action='/api/users/login' method='POST'>
-  <div class='field'>
-    <label class='label'>Email</label>
-    <div class='control'>
-      <input class='input' type='email' name='email' placeholder='Your Email' required />
+          <div class='field'>
+            <label class='label'>Password</label>
+            <div class='control'>
+              <input class='input' type='password' name='password' placeholder='Your Password' required />
+            </div>
+          </div>
+
+          <div class='control'>
+            <button class='button is-link mt-4' type='submit'>Login</button>
+          </div>
+        </form>
+      </div>
     </div>
+    <footer class='card-footer'>
+      <p class='card-footer-item'>
+        <span>
+          Don't have an account?
+          <a href='/signup'>Register here</a>.
+        </span>
+      </p>
+    </footer>
   </div>
-
-  <div class='field'>
-    <label class='label'>Password</label>
-    <div class='control'>
-      <input class='input' type='password' name='password' placeholder='Your Password' required />
-    </div>
-  </div>
-
-  <div class='control'>
-    <button class='button is-primary' type='submit'>Login</button>
-  </div>
-</form>
-
-<p class='has-text-centered'>
-  Don't have an account?
-  <a href='/signup'>Register here</a>.
-</p>
+</div>

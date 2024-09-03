@@ -1,6 +1,41 @@
 <div class='container is-max-desktop mt-5'>
-  <h2><strong>NEW POST</strong></h2>
-  <form id='newFormPost'>
+  <nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+      <li><a href="/" class="has-text-grey-dark">Home</a></li>
+      <li><a href="/dashboard" class="has-text-grey-dark">Dashboard</a></li>
+      <li class="is-active"><a href="" class="has-text-grey" aria-current="page"></li>New Post</a></li>
+    </ul>
+  </nav>
+  <div class='card'>
+    <header class='card-header has-background-light'>
+      <p class='card-header-title'>New Post</p>
+    </header>
+    <div class='card-content'>
+      <form id='newFormPost'>
+        <div class='field mt-5'>
+          <label class='label'>Post Title</label>
+          <div class='control'>
+            <input class='input is-primary' type='postTitle' placeholder='Post Title' id='postTitle' required />
+          </div>
+        </div>
+
+        <div class='field'>
+          <label class='label'>Post Content</label>
+          <div class='control'>
+            <textarea class='textarea is-primary' placeholder='Textarea' id='postContent' required></textarea>
+          </div>
+        </div>
+
+        <div class='field is-grouped'>
+          <div class='control'>
+            <button class='button is-info' id='submitPost'>Submit New Post</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {{! <form id='newFormPost'>
     <div class='field mt-5'>
       <label class='label'>Post Title</label>
       <div class='control'>
@@ -20,7 +55,7 @@
         <button class='button is-link' id='submitPost'>Submit</button>
       </div>
     </div>
-  </form>
+  </form> }}
 </div>
 
 {{! Handle New Post Form }}
