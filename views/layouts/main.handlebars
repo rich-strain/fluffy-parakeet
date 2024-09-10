@@ -5,16 +5,14 @@
     <title>Tek Blog</title>
     <!-- Bulma CSS -->
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css' />
-    {{! Load jQuery }}
-    {{! <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script> }}
 
   </head>
   <body>
     <header>
-      <nav class='navbar has-background-grey-lighter' role='navigation' aria-label='main navigation'>
+      <nav class='navbar has-background-light' role='navigation' aria-label='main navigation'>
         <div class='navbar-brand'>
           <a class='navbar-item' href='/'>
-            <img src='./images/brand-icon.png' />
+            <img src='/images/brand-icon.png' />
           </a>
           <a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='navbarBasicExample'>
             <span aria-hidden='true'></span>
@@ -58,10 +56,10 @@
     {{{body}}}
 
   </body>
-  <script type='text/javascript' src='./js/navBar.js' type=''></script>
+  <script type='text/javascript' src='/js/navBar.js' type=''></script>
 
   <!-- Import Logout Script if User is Authenticated -->
   {{#if authenticated}}
-    <script type='text/javascript' src='js/logout.js'></script>
+    <script type='text/javascript' src='/js/logout.js'></script>
   {{/if}}
 </html>

@@ -23,11 +23,8 @@
     <div class='card'>
       <header class='card-header has-background-light'>
         <p class='card-header-title'>
-          {{comment.user.name}}
+          On {{format_date post.date_created}} {{comment.user.name}} commented:
         </p>
-        <span class="has-text-weight-medium pr-5 pt-3">
-          Commented On {{format_date post.date_created}}
-        </span>
       </header>
       <div class='card-content'>
         <div class='content'>
