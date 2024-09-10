@@ -25,40 +25,13 @@ A CMS-style blot where developers can publish their posts and comment on each ot
 
 ### Initialize App From Terminal
 
-```
+```sh
 npm start
 ```
 
-### Product Requests
-
-- `http://localhost:3001/api/products/` GET to View All Products
-- `http://localhost:3001/api/products/` POST to Create a New Product
-- `http://localhost:3001/api/products/:id` PUT to Update a Product By Id
-- `http://localhost:3001/api/products/:id` DELETE to Delete a Product By Id
-
-### Category Requests
-
-- `http://localhost:3001/api/categories/` GET to View All Categories
-- `http://localhost:3001/api/categories/` POST to Create a New Category
-- `http://localhost:3001/api/categories/:id` PUT to Update a Category By Id
-- `http://localhost:3001/api/categories/:id` DELETE to Delete a Category By Id
-
-### Tag Requests
-
-- `http://localhost:3001/api/tags/` GET to View All Tags
-- `http://localhost:3001/api/tags/` POST to Create a New Tags
-- `http://localhost:3001/api/tags/:id` PUT to Update a Tag By Id
-- `http://localhost:3001/api/tags/:id` DELETE to Delete a Tag By Id
-
-### Video Walkthrough
-
-To see the application working from Insomnia please refer to the link below.
-
-[ScreenCast.com](https://www.screencast.com/t/vuMCkTuNSo)
-
 ### Screenshot
 
-![Application Screenshot](assets/images/screenshot.png)
+![Application Screenshot](assets/images/fluffy-parakeet-screenshot.png)
 
 ## License
 
