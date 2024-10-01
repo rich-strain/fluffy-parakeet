@@ -4,7 +4,7 @@
 
 ## Description
 
-A CMS-style blot where developers can publish their posts and comment on each other's posts as well.
+A CMS-style blog where developers can publish their posts and comment on each other's posts as well.
 
 ## Table Of Contents
 
